@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
     avatar: {
         aspectRatio:1,
-        flex: 1,
+        flex: 2,
         marginLeft: 15,
         borderRadius: 50
     }
