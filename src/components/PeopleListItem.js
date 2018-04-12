@@ -1,11 +1,16 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image } from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import {capitalizeFirstLetter} from '../util';
 
+
 const PeopleListItem = props => {
-    const { people } = props;
+    const { people, navigateToPeopleDetail } = props;
     const { title,first, last } = people.name;
     return (
+        <TouchableOpacity onPress={() => {
+        console.log('clicou em mim hihi', first)
+        navigateToPeopleDetail();
+        }}>
         <View  style={styles.line}>
         <Image style={styles.avatar}source={{uri: people.picture.thumbnail}} />
             <Text style={styles.lineText}>
@@ -15,6 +20,7 @@ const PeopleListItem = props => {
                 }` }
             </Text>
         </View>
+        </TouchableOpacity>
     );
 }
 
@@ -33,7 +39,7 @@ const styles = StyleSheet.create({
     },
     avatar: {
         aspectRatio:1,
-        flex: 2,
+        flex: 1,
         marginLeft: 15,
         borderRadius: 50
     }
